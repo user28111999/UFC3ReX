@@ -93,6 +93,11 @@ public class SettingsTab : ILauncherTab
         col.Controls.Add(Check("ufc3_free_unlock_points", "Unlock shop items are free", false, "Buying does not spend unlock points."));
         col.Controls.Add(Check("ufc3_caf_max_points", "Max stats for created fighters", false, "Create-A-Fighter: raising attributes and skills costs no points, so every stat can go up to its limit for the weight class. Not in career mode. Your save stays valid."));
 
+        col.Controls.Add(Ui.Head("Career cheats"));
+        col.Controls.Add(Check("ufc3_full_training_rewards", "Full training rewards (Auto)", false, "Automatic career training earns the best grade for the selected activity."));
+        col.Controls.Add(Check("ufc3_full_technique_rewards", "Maximum technique reward (Auto)", false, "Automatic Camp Sessions earn the top technique grade and a score of 1000."));
+        col.Controls.Add(Check("ufc3_double_career_creds", "Double career Creds", false, "Doubles Creds earned from career fights, up to the game's balance cap."));
+
         col.Controls.Add(Ui.Head("Mods"));
         cap.ValueChanged += (_, _) => { if (!loading) Write(t => t.Set("ufc3_roster_cap", (int)cap.Value)); };
         col.Controls.Add(Row("Roster size (fighters)", cap));
